@@ -119,6 +119,15 @@ variable "management_subnet_id" {
 }
 
 ##################################################################################
+# management_reservedIP - Reserved IP address for the F5 BIG-IP management interface
+##################################################################################
+variable "management_reserved_ip" {
+  type        = string
+  default     = null
+  description = "Reserved IP address for the F5 BIG-IP management network"
+}
+
+##################################################################################
 # bigip_management_floating_ip - Create a Floating IP for the management interface for BIG-IP
 ##################################################################################
 variable "bigip_management_floating_ip" {
@@ -133,8 +142,17 @@ variable "bigip_management_floating_ip" {
 ##################################################################################
 variable "cluster_subnet_id" {
   type        = string
-  default     = ""
+  default     = null
   description = "Optional VPC Gen2 subnet ID for the F5 BIG-IP configsync activities"
+}
+
+##################################################################################
+# cluster_reservedIP - Reserved IP address for the F5 BIG-IP configsync interface
+##################################################################################
+variable "cluster_reserved_ip" {
+  type        = string
+  default     = null
+  description = "Reserved IP address for the F5 BIG-IP configsync interface"
 }
 
 ##################################################################################
@@ -142,8 +160,17 @@ variable "cluster_subnet_id" {
 ##################################################################################
 variable "internal_subnet_id" {
   type        = string
-  default     = ""
+  default     = null
   description = "Optional VPC Gen2 subnet ID for the F5 BIG-IP access to internal resources"
+}
+
+##################################################################################
+# internal_reservedIP - Reserved IP address for the F5 BIG-IP internal resources
+##################################################################################
+variable "internal_reserved_ip" {
+  type        = string
+  default     = null
+  description = "Reserved IP address for the F5 BIG-IP internal resources"
 }
 
 ##################################################################################
@@ -151,8 +178,17 @@ variable "internal_subnet_id" {
 ##################################################################################
 variable "external_subnet_id" {
   type        = string
-  default     = ""
+  default     = null
   description = "Required VPC Gen2 subnet ID for the F5 BIG-IP virtual service listeners"
+}
+
+##################################################################################
+# external_reservedIP - Reserved IP address for the F5 BIG-IP virtual service listeners
+##################################################################################
+variable "external_reserved_ip" {
+  type        = string
+  default     = null
+  description = "Reserved IP address for the the F5 BIG-IP virtual service listeners"
 }
 
 ##################################################################################
