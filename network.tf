@@ -7,8 +7,9 @@ data "ibm_is_subnet" "f5_external_subnet" {
 }
 
 locals {
-  secondary_subnets    = compact(tolist([var.cluster_subnet_id, var.internal_subnet_id, data.ibm_is_subnet.f5_external_subnet.id]))
-  external_floating_ip = var.external_subnet_id == "" ? false : var.bigip_external_floating_ip
+  secondary_subnets       = compact(tolist([var.cluster_subnet_id, var.internal_subnet_id, var.external_subnet_id]))
+  secondary_reserved_ips  = compact(tolist([var.cluster_reserved_ip_id, var.internal_reserved_ip_id, var.external_reserved_ip_id]))
+  external_floating_ip    = var.external_subnet_id == "" ? false : var.bigip_external_floating_ip
 }
 
 resource "random_uuid" "namer" {}
