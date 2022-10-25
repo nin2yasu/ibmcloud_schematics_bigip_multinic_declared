@@ -141,7 +141,7 @@ resource "ibm_is_instance" "f5_ve_instance" {
   profile        = data.ibm_is_instance_profile.instance_profile.id
   primary_network_interface {
     name            = "management"
-    subnet          = data.ibm_is_subnet.f5_management_subnet.management.id
+    subnet          = data.ibm_is_subnet.f5_management_subnet.management[0].id
     security_groups = [ibm_is_security_group.f5_open_sg.id]
     primary_ip {
       address = data.ibm_is_subnet_reserved_ip.management.id
