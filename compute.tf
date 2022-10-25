@@ -126,8 +126,8 @@ data "template_file" "user_data" {
   }
 }
 
-# Retrieve reserved IP
-data "ibm_is_subnet_reserved_ip" "management" {
+# lookup reservedip by name
+data "ibm_is_subnet_reserved_ip" "management_reserved_ip" {
   subnet      = data.ibm_is_subnet.f5_management_subnet.id
   reserved_ip = var.management_reserved_ip
 }
@@ -141,10 +141,10 @@ resource "ibm_is_instance" "f5_ve_instance" {
   profile        = data.ibm_is_instance_profile.instance_profile.id
   primary_network_interface {
     name            = "management"
-    subnet          = data.ibm_is_subnet.f5_management_subnet.management[0].id
+    subnet          = data.ibm_is_subnet.f5_management_subnet.id
     security_groups = [ibm_is_security_group.f5_open_sg.id]
     primary_ip {
-      address = data.ibm_is_subnet_reserved_ip.management.id
+      address = data.ibm_is_subnet_reserved_ip.management_reserved_ip.id
       auto_delete = false
     } 
   }
