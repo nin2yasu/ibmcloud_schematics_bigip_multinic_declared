@@ -149,7 +149,6 @@ resource "ibm_is_instance" "f5_ve_instance" {
       security_groups   = [ibm_is_security_group.f5_open_sg.id]
       allow_ip_spoofing = true
       primary_ip {
-        reserved_ip = local.secondary_reserved_ips[each.key]
         auto_delete = false
       }
     }
