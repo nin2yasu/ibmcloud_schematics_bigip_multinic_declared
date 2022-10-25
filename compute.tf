@@ -126,6 +126,13 @@ data "template_file" "user_data" {
   }
 }
 
+# Retrieve reserved IP
+data "ibm_is_subnet_reserved_ip" "management" {
+  subnet      = data.ibm_is_subnet.f5_management_subnet.id
+  reserved_ip = var.management_reserved_ip
+}
+
+
 # create compute instance
 resource "ibm_is_instance" "f5_ve_instance" {
   name           = var.instance_name
@@ -137,7 +144,7 @@ resource "ibm_is_instance" "f5_ve_instance" {
     subnet          = data.ibm_is_subnet.f5_management_subnet.id
     security_groups = [ibm_is_security_group.f5_open_sg.id]
     primary_ip {
-      address = var.management_reserved_ip
+      address = data.ibm_is_subnet_reserved_ip.management.id
       auto_delete = false
     } 
   }
