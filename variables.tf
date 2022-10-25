@@ -119,12 +119,12 @@ variable "management_subnet_id" {
 }
 
 ##################################################################################
-# management_reservedIP - Reserved IP address for the F5 BIG-IP management interface
+# management_reserved_ip_id - Reserved IP address ID for the F5 BIG-IP management interface
 ##################################################################################
-variable "management_reserved_ip" {
+variable "management_reserved_ip_id" {
   type        = string
   default     = null
-  description = "Reserved IP address for the F5 BIG-IP management network"
+  description = "Reserved IP address ID for the F5 BIG-IP management network"
 }
 
 ##################################################################################
@@ -147,12 +147,12 @@ variable "cluster_subnet_id" {
 }
 
 ##################################################################################
-# cluster_reservedIP - Reserved IP address for the F5 BIG-IP configsync interface
+# cluster_reserved_ip_id - Reserved IP address ID for the F5 BIG-IP configsync interface
 ##################################################################################
-variable "cluster_reserved_ip" {
+variable "cluster_reserved_ip_id" {
   type        = string
   default     = null
-  description = "Reserved IP address for the F5 BIG-IP configsync interface"
+  description = "Reserved IP address ID for the F5 BIG-IP configsync interface"
 }
 
 ##################################################################################
@@ -165,12 +165,12 @@ variable "internal_subnet_id" {
 }
 
 ##################################################################################
-# internal_reservedIP - Reserved IP address for the F5 BIG-IP internal resources
+# internal_reserved_ip_id - Reserved IP address ID for the F5 BIG-IP internal resources
 ##################################################################################
-variable "internal_reserved_ip" {
+variable "internal_reserved_ip_id" {
   type        = string
   default     = null
-  description = "Reserved IP address for the F5 BIG-IP internal resources"
+  description = "Reserved IP address ID for the F5 BIG-IP internal resources"
 }
 
 ##################################################################################
@@ -183,12 +183,12 @@ variable "external_subnet_id" {
 }
 
 ##################################################################################
-# external_reservedIP - Reserved IP address for the F5 BIG-IP virtual service listeners
+# external_reserved_ip_id - Reserved IP address ID for the F5 BIG-IP virtual service listeners
 ##################################################################################
-variable "external_reserved_ip" {
+variable "external_reserved_ip_id" {
   type        = string
   default     = null
-  description = "Reserved IP address for the the F5 BIG-IP virtual service listeners"
+  description = "Reserved IP address ID for the the F5 BIG-IP virtual service listeners"
 }
 
 ##################################################################################
